@@ -312,6 +312,24 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  (setq powerline-default-separator 'slant)
+
+  ;; Added by WangRen <iamwrm@gmail.com> on [2017-1-12 15:55]
+  (setq org-agenda-files '("~/Dropbox/emacs/org-emacs"))
+  (add-to-list 'org-agenda-files (expand-file-name "~/Dropbox"))
+
+
+  ;; Set to the location of your Org files on your local system
+  (setq org-directory "~/Dropbox/emacs/org-emacs")
+  ;; Set to the name of the file where new notes will be stored
+  (setq org-mobile-inbox-for-pull "~/Dropbox/emacs/org-emacs/fmb.org")
+  ;; Set to <your Dropbox root directory>/MobileOrg.
+  (setq org-mobile-directory "~/Dropbox/应用/MobileOrg")
+
+  (advice-add 'org-agenda-quit :before 'org-mobile-push)
+  (advice-add 'org-agenda-quit :before 'org-mobile-pull)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -346,16 +364,26 @@ you should place your code here."
     ("/Users/wangren/Dropbox/emacs/org-emacs/cap-journal.org" "/Users/wangren/Dropbox/emacs/org-emacs/cap-todo.org")))
  '(org-capture-templates
    (quote
-    (("t" "Todo" entry
+    (
+     ("t" "Todo with datetree" entry
       (file+datetree "~/Dropbox/emacs/org-emacs/cap-todo.org")
+"* TODO %^{Description}  %^g
+%?
+Added: %U")
+
+     ("c" "Todo" entry
+      (file "~/Dropbox/emacs/org-emacs/todo.org")
       "* TODO %^{Description}  %^g
 %?
 Added: %U")
+
      ("j" "Journal" entry
       (file+datetree "~/Dropbox/emacs/org-emacs/cap-journal.org")
-      "** %^{Heading}
+"** %^{Heading}
 %?
-Added: %U"))))
+Added: %U")
+
+     )))
  '(package-selected-packages
    (quote
     (ox-gfm color-theme-sanityinc-solarized material-theme web-beautify livid-mode js2-refactor company-tern dash-functional skewer-mode simple-httpd json-mode json-snatcher json-reformat multiple-cursors js2-mode js-doc tern coffee-mode magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic helm-dash dash-at-point molokai-theme stickyfunc-enhance srefactor reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl disaster company-c-headers cmake-mode clang-format xterm-color smeargle shell-pop orgit org-projectile org-present org org-pomodoro alert log4e gntp org-download mwim multi-term mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help diff-hl company-statistics company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete spinner adaptive-wrap ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme)))
@@ -392,21 +420,8 @@ Added: %U"))))
  ;; If there is more than one, they won't work right.
  )
 
-(defun dotspacemacs/user-config ()
-  "This is were you can ultimately override default Spacemacs configuration.
-This function is called at the very end of Spacemacs initialization."
-  (setq powerline-default-separator 'slant))
-
-;; Added by WangRen <iamwrm@gmail.com> on [2017-1-12 15:55]
-(setq org-agenda-files '("~/Dropbox/emacs/org-emacs"))
-(add-to-list 'org-agenda-files (expand-file-name "~/Dropbox"))
 
 
-;; Set to the location of your Org files on your local system
-(setq org-directory "~/Dropbox/emacs/org-emacs")
-;; Set to the name of the file where new notes will be stored
-(setq org-mobile-inbox-for-pull "~/Dropbox/emacs/org-emacs/mobile.org")
-;; Set to <your Dropbox root directory>/MobileOrg.
-(setq org-mobile-directory "~/Dropbox/应用/MobileOrg")
+
 
 
