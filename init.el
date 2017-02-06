@@ -322,6 +322,8 @@ you should place your code here."
 
   (delete-selection-mode 1)
 
+  (setq org-babel-python-command "python3")
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
