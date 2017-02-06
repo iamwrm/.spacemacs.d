@@ -38,9 +38,6 @@ values."
      ;; ----------------------------------------------------------------
      osx
      c-c++
-     ycmd
-     semantic
-     cscope
      python
      dash
      helm
