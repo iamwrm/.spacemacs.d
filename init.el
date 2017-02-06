@@ -131,15 +131,15 @@ values."
    ;; with 2 themes variants, one dark and one light)
 
    dotspacemacs-themes '(
-                         material
-                         monokai
                          sanityinc-solarized-dark
+                         monokai
+                         material
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Monaco"
                                :size 18
                                :weight normal
                                :width normal
@@ -318,17 +318,9 @@ you should place your code here."
   ;; Added by WangRen <iamwrm@gmail.com> on [2017-1-12 15:55]
   (setq org-agenda-files '("~/Dropbox/emacs/org-emacs"))
   (add-to-list 'org-agenda-files (expand-file-name "~/Dropbox"))
+  ;;(global-linum-mode 1)
 
-
-  ;; Set to the location of your Org files on your local system
-  (setq org-directory "~/Dropbox/emacs/org-emacs")
-  ;; Set to the name of the file where new notes will be stored
-  (setq org-mobile-inbox-for-pull "~/Dropbox/emacs/org-emacs/fmb.org")
-  ;; Set to <your Dropbox root directory>/MobileOrg.
-  (setq org-mobile-directory "~/Dropbox/应用/MobileOrg")
-
-  (advice-add 'org-agenda-quit :before 'org-mobile-push)
-  (advice-add 'org-agenda-quit :before 'org-mobile-pull)
+  (delete-selection-mode 1)
 
   )
 
