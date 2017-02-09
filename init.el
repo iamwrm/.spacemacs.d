@@ -302,6 +302,15 @@ before packages are loaded. If you are unsure, you should try in setting them in
         '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
           ("org-cn"   . "http://elpa.emacs-china.org/org/")
           ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+
+
+  ;;below from https://github.com/syl20bnr/spacemacs/issues/7641
+  (require 'ob-python)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t)))
+
+
   )
 
 (defun dotspacemacs/user-config ()
