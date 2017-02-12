@@ -320,6 +320,7 @@ you should place your code here."
   ;; Added by WangRen <iamwrm@gmail.com> on [2017-1-12 15:55]
   (setq org-agenda-files '("~/Dropbox/emacs/org-emacs"))
   (add-to-list 'org-agenda-files (expand-file-name "~/Dropbox"))
+  (add-to-list 'org-agenda-files (expand-file-name "~/Dropbox/wang"))
   ;;(global-linum-mode 1)
 
   (delete-selection-mode 1)
