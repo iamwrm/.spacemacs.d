@@ -133,9 +133,9 @@ values."
    ;; with 2 themes variants, one dark and one light)
 
    dotspacemacs-themes '(
+                         material
                          monokai
                          sanityinc-solarized-dark
-                         material
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
