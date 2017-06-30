@@ -24,7 +24,7 @@ values."
    ;; If non-nil then Spacemacs will ask for confirmation before installing
    ;; a layer lazily. (default t)
    dotspacemacs-ask-for-lazy-installation t
-   ;; If non-nil layers with lazy install support are lazy installed.
+   ;; If non-nil layers with Titlelazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
@@ -133,18 +133,15 @@ values."
    ;; with 2 themes variants, one dark and one light)
 
    dotspacemacs-themes '(
+                         django
                          monokai
-                         spacegray
-                         afternoon
-                         material
-                         spacemacs-dark
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Monaco"
-                               :size 18
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -228,7 +225,7 @@ values."
    ;; If non nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil to boost the loading time. (default t)
-   dotspacemacs-loading-progress-bar t
+   dotspacemacs-loading-progress-bar nil
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
    dotspacemacs-fullscreen-at-startup nil
@@ -238,7 +235,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup t
+   dotspacemacs-maximized-at-startup nil
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -303,12 +300,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
 
- (setq configuration-layer--elpa-archives
-         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-        ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-        ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
-
-
 )
 
 (defun dotspacemacs/user-config ()
@@ -322,16 +313,16 @@ you should place your code here."
   (setq powerline-default-separator 'slant)
 
   ;; Added by WangRen <iamwrm@gmail.com> on [2017-1-12 15:55]
-  (setq org-agenda-files '("~/Dropbox/emacs/org-emacs"))
-  (add-to-list 'org-agenda-files (expand-file-name "~/Dropbox"))
-  (add-to-list 'org-agenda-files (expand-file-name "~/Dropbox/wang"))
+  (setq org-agenda-files '("~/Documents/Nutstore/Wang/emacs/todo.org"))
+  (add-to-list 'org-agenda-files (expand-file-name "~/Documents/Nutstore/Wang/RPG/init.org"))
+  (add-to-list 'org-agenda-files (expand-file-name "~/Documents/Nutstore/Wang/RPG/log.org"))
   ;;(global-linum-mode 1)
 
   (delete-selection-mode 1)
 
   ;; Added by WangRen <iamwrm@gmail.com> on [2017-3-15]
   (require 'sublimity)
-  (sublimity-mode 1)
+  ;;(sublimity-mode 1)
   (require 'sublimity-map) ;; experimental
   (sublimity-map-set-delay nil)
 
@@ -349,6 +340,9 @@ you should place your code here."
  '(ansi-color-names-vector
    ["#272822" "#F92672" "#A6E22E" "#E6DB74" "#66D9EF" "#FD5FF0" "#A1EFE4" "#F8F8F2"])
  '(compilation-message-face (quote default))
+ '(custom-safe-themes
+   (quote
+    ("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
  '(evil-want-Y-yank-to-eol nil)
  '(fci-rule-color "#3C3D37" t)
  '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
@@ -366,16 +360,16 @@ you should place your code here."
  '(magit-diff-use-overlays nil)
  '(org-agenda-files
    (quote
-    ("/Users/wangren/Dropbox/emacs/org-emacs/cap-journal.org" "/Users/wangren/Dropbox/emacs/org-emacs/cap-todo.org")))
+    ("~/Documents/Nutstore/Wang/RPG/init.org" "~/Documents/Nutstore/Wang/emacs/todo.org")) t)
  '(org-capture-templates
    (quote
     (("c" "Todo" entry
-      (file "~/Dropbox/emacs/org-emacs/todo.org")
+      (file "~/Documents/Nutstore/Wang/emacs/todo.org")
       "* TODO %^{Description}  %^g
 %?
 Added: %U")
      ("j" "Journal" entry
-      (file+datetree "~/Dropbox/emacs/org-emacs/cap-journal.org")
+      (file+datetree "~/Documents/Nutstore/Wang/emacs/journal.org")
       "** %^{Heading}
 %?
 Added: %U"))))
@@ -413,7 +407,7 @@ Added: %U"))))
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((((class color) (min-colors 257)) (:foreground "#F8F8F2" :background "#272822" :family "Monaco" :foundry "nil" :slant normal :weight normal :height 180 :width normal)) (((class color) (min-colors 89)) (:foreground "#F5F5F5" :background "#1B1E1C" :family "Monaco" :foundry "nil" :slant normal :weight normal :height 180 :width normal)))))
 
 
 
