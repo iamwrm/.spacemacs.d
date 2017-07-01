@@ -5,6 +5,7 @@
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
+
 values."
   (setq-default
    ;; Base distribution to use. This is a layer contained in the directory
@@ -133,15 +134,15 @@ values."
    ;; with 2 themes variants, one dark and one light)
 
    dotspacemacs-themes '(
-                         django
                          monokai
+                         django
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Monaco"
-                               :size 14
+   dotspacemacs-default-font '("Inconsolata"
+                               :size 15
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
